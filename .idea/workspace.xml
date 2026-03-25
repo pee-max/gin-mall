@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="07db5a00-1289-4b76-b3ac-aa78ec8e9856" name="更改" comment="" />
+    <list default="true" id="07db5a00-1289-4b76-b3ac-aa78ec8e9856" name="更改" comment="change something">
+      <change afterPath="$PROJECT_DIR$/model/address.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/admin.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/base.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/carousel.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/cart.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/favorite.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/notice.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/order.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/product.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/product_img.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/migrator.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/migrator.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,26 +36,31 @@
   </component>
   <component name="GOROOT" url="file://C:/Program Files/Go" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "pee-max"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;pee-max&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/pee-max/gin-mall.git",
-    "accountId": "f0ac7412-74bf-4a62-9fb0-320183264c0a"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/pee-max/gin-mall.git&quot;,
+    &quot;accountId&quot;: &quot;f0ac7412-74bf-4a62-9fb0-320183264c0a&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3BOecC6uMkn2r1ElPxFjbMrVeuF" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -54,7 +76,7 @@
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "ignore.virus.scanning.warn.message": "true",
@@ -96,6 +118,10 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="change something" />
+    <option name="LAST_COMMIT_MESSAGE" value="change something" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
