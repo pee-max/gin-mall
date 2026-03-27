@@ -85,10 +85,10 @@ func LoadOs(file *ini.File) {
 }
 
 func LoadSmtp(file *ini.File) {
-	SmtpHost = file.Section("smtp").Key("Host").String()
-	SmtpEmail = file.Section("smtp").Key("Email").String()
-	SmtpPass = file.Section("smtp").Key("Pass").String()
-	SmtpEmail = file.Section("smtp").Key("Email").String()
+	ValidEmail = file.Section("email").Key("ValidEmail").String()
+	SmtpHost = file.Section("email").Key("SmtpHost").String()
+	SmtpEmail = file.Section("email").Key("SmtpEmail").String()
+	SmtpPass = file.Section("email").Key("SmtpPass").String()
 }
 
 func LoadPath(file *ini.File) {

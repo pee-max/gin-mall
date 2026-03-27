@@ -3,13 +3,17 @@ package service
 import (
 	"context"
 	"errors"
+	"gin_mall/conf"
 	"gin_mall/dao"
 	"gin_mall/model"
 	"gin_mall/pkg/e"
 	"gin_mall/pkg/util"
 	"gin_mall/serializer"
+	"gopkg.in/mail.v2"
 	"gorm.io/gorm"
 	"mime/multipart"
+	"strings"
+	"time"
 )
 
 type UserService struct {
@@ -17,6 +21,16 @@ type UserService struct {
 	UserName string `json:"user_name" form:"user_name"`
 	Password string `json:"password" form:"password"`
 	Key      string `json:"key" form:"key"`
+}
+
+type SendEmailService struct {
+	Email         string `json:"email" form:"email"`
+	Password      string `json:"password" form:"password"`
+	OperationType uint   `json:"operation_type" form:"operation_type"`
+	//1:绑定邮箱 2：解绑邮箱 3：修改密码
+}
+
+type ValidEmailService struct {
 }
 
 func (service *UserService) Register(ctx context.Context) serializer.Response {
@@ -183,6 +197,124 @@ func (service *UserService) Post(ctx context.Context, uId uint, file multipart.F
 		return serializer.Response{
 			Status: code,
 			Msg:    e.GetMsg(code),
+		}
+	}
+	return serializer.Response{
+		Status: code,
+		Msg:    e.GetMsg(code),
+		Data:   serializer.BuildUser(user),
+	}
+}
+
+func (service *SendEmailService) Send(ctx context.Context, uId uint) serializer.Response {
+	code := e.Success
+	var address string
+	var notice *model.Notice
+	token, err := util.GenerateEmailToken(uId, service.OperationType, service.Email, service.Password)
+	if err != nil {
+		code = e.ErrorAuthToken
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+			Error:  err.Error(),
+		}
+	}
+	noticeDao := dao.NewNoticeDao(ctx)
+	notice, err = noticeDao.FindNoticeByID(service.OperationType)
+	if err != nil {
+		code = e.Error
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+			Error:  err.Error(),
+		}
+	}
+	address = conf.ValidEmail + token
+	mailStr := notice.Text
+	mailTex := strings.Replace(mailStr, "Email", address, -1)
+	m := mail.NewMessage()
+	m.SetHeader("From", conf.SmtpEmail)
+	m.SetHeader("To", service.Email)
+	m.SetHeader("Subject", "peppa")
+	m.SetBody("text/html", mailTex)
+	d := mail.NewDialer(conf.SmtpHost, 465, conf.SmtpEmail, conf.SmtpPass)
+	d.StartTLSPolicy = mail.MandatoryStartTLS
+	if err := d.DialAndSend(m); err != nil {
+		code = e.ErrorSendEmailFail
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+			Error:  err.Error(),
+		}
+	}
+	return serializer.Response{
+		Status: code,
+		Msg:    e.GetMsg(code),
+		Data:   token,
+	}
+}
+
+func (service *ValidEmailService) Valid(ctx context.Context, token string) serializer.Response {
+	var userId, operationType uint
+	var email, password string
+	code := e.Success
+	if token == "" {
+		code = e.ErrorAuthTokenEmpty
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+		}
+	} else {
+		claims, err := util.ParseEmailToken(token)
+		if err != nil {
+			code = e.ErrorAuthToken
+		} else if time.Now().Unix() > claims.ExpiresAt {
+			code = e.ErrorAuthTokenTimeOut
+		} else {
+			userId = claims.UserID
+			operationType = claims.OperationType
+			email = claims.Email
+			password = claims.Password
+		}
+	}
+	if code != e.Success {
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+		}
+	}
+	userDao := dao.NewUserDao(ctx)
+	user, err := userDao.FindUserByID(userId)
+	if err != nil {
+		code = e.Error
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+			Error:  err.Error(),
+		}
+	}
+	if operationType == 1 {
+		user.Email = email
+	} else if operationType == 2 {
+		user.Email = ""
+	} else if operationType == 3 {
+		err = user.SetPassword(password)
+		if err != nil {
+			code = e.ErrorUploadFail
+			return serializer.Response{
+				Status: code,
+				Msg:    e.GetMsg(code),
+				Error:  err.Error(),
+			}
+		}
+	}
+	err = userDao.UpdateUserByID(userId, user)
+	if err != nil {
+		code = e.Error
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+			Error:  err.Error(),
 		}
 	}
 	return serializer.Response{

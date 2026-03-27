@@ -15,6 +15,7 @@ var Msg = map[int]string{
 	ErrorAuthTokenTimeOut: "token失效",
 	ErrorAuthTokenEmpty:   "缺失token",
 	ErrorUploadFail:       "图片上传失败",
+	ErrorSendEmailFail:    "邮件发送失败",
 }
 
 func GetMsg(code int) string {
