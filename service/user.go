@@ -9,6 +9,7 @@ import (
 	"gin_mall/pkg/util"
 	"gin_mall/serializer"
 	"gorm.io/gorm"
+	"mime/multipart"
 )
 
 type UserService struct {
@@ -138,6 +139,50 @@ func (service *UserService) Update(ctx context.Context, uId uint) serializer.Res
 			Status: code,
 			Msg:    e.GetMsg(code),
 			Error:  err.Error(),
+		}
+	}
+	return serializer.Response{
+		Status: code,
+		Msg:    e.GetMsg(code),
+		Data:   serializer.BuildUser(user),
+	}
+}
+
+func (service *UserService) Post(ctx context.Context, uId uint, file multipart.File, fileSize int64) serializer.Response {
+	code := e.Success
+	var user *model.User
+	var err error
+	userDao := dao.NewUserDao(ctx)
+	user, err = userDao.FindUserByID(uId)
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			code = e.ErrorExistUserNotFound
+			return serializer.Response{
+				Status: code,
+				Msg:    e.GetMsg(code),
+			}
+		}
+		code = e.Error
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+		}
+	}
+	path, err := UploadAvatarToLocalStatic(file, uId, user.UserName)
+	if err != nil {
+		code = e.ErrorUploadFail
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+		}
+	}
+	user.Avatar = path
+	err = userDao.UpdateUserByID(uId, user)
+	if err != nil {
+		code = e.Error
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
 		}
 	}
 	return serializer.Response{

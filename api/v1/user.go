@@ -38,3 +38,17 @@ func UserUpdate(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, err)
 	}
 }
+
+func UploadAvatar(c *gin.Context) {
+	file, fileHeader, _ := c.Request.FormFile("file")
+	fileSize := fileHeader.Size
+	var uploadAvatar service.UserService
+	claims, _ := util.ParseToken(c.GetHeader("Authorization"))
+	if err := c.ShouldBind(&uploadAvatar); err == nil {
+		res := uploadAvatar.Post(c.Request.Context(), claims.ID, file, fileSize)
+		c.JSON(http.StatusOK, res)
+	} else {
+		c.JSON(http.StatusBadRequest, err)
+	}
+
+}
