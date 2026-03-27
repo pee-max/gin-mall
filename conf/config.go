@@ -33,7 +33,7 @@ var (
 	Server    string
 
 	Host        string
-	ProductPass string
+	ProductPath string
 	AvatarPath  string
 )
 
@@ -93,6 +93,6 @@ func LoadSmtp(file *ini.File) {
 
 func LoadPath(file *ini.File) {
 	AvatarPath = file.Section("path").Key("AvatarPath").String()
-	ProductPass = file.Section("path").Key("ProductPass").String()
+	ProductPath = file.Section("path").Key("ProductPass").String()
 	Host = file.Section("path").Key("Host").String()
 }

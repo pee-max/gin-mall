@@ -5,22 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07db5a00-1289-4b76-b3ac-aa78ec8e9856" name="更改" comment="change something">
-      <change afterPath="$PROJECT_DIR$/model/address.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/admin.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/base.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/carousel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/cart.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/category.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/favorite.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/notice.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/order.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/product.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/product_img.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/cors.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/jwt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/e/code.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/e/msg.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/util/encrypt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/util/jwt.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serializer/common.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serializer/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/avatar/default.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/migrator.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/migrator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +85,7 @@
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/goProject/gin_mall",
+    "last_opened_file_path": "E:/goProject/gin_mall/static/imgs/avatar",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -95,6 +100,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\goProject\gin_mall\static\imgs\avatar" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\goProject\gin_mall" />
     </key>
