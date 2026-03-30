@@ -55,23 +55,32 @@ func UnPadPwd(dst []byte) ([]byte, error) {
 	return str, nil
 }
 
-func (k *Encryption) AesDecoding(pwd string) string {
-	pwdByte := []byte(pwd)
+func (k *Encryption) AesDecoding(pwd string) (string, error) {
+	if k.key == "" {
+		return "", errors.New("密钥为空")
+	}
 	pwdByte, err := base64.StdEncoding.DecodeString(pwd)
 	if err != nil {
-		return pwd
+		return "", errors.New("解密失败：数据格式错误")
 	}
 	block, errBlock := aes.NewCipher([]byte(k.key))
 	if errBlock != nil {
-		return pwd
+		return "", errors.New("密钥错误")
 	}
 	dst := make([]byte, len(pwdByte))
 	block.Decrypt(dst, pwdByte)
 	dst, err = UnPadPwd(dst)
 	if err != nil {
-		return "0"
+		return "", errors.New("解密失败")
 	}
-	return string(dst)
+	result := string(dst)
+	// 检查解密结果是否是有效数字
+	for _, c := range result {
+		if c < '0' || c > '9' {
+			return "", errors.New("密钥错误")
+		}
+	}
+	return result, nil
 }
 
 func (k *Encryption) SetKey(key string) {

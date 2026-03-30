@@ -1,7 +1,7 @@
 package e
 
 var Msg = map[int]string{
-	Success:       "ok",
+	Success:       "success",
 	Error:         "failed",
 	InvalidParams: "参数错误",
 
