@@ -17,20 +17,16 @@ var (
 	DbPassword string
 	DbName     string
 
-	RedisDb     string
-	RedisAddr   string
-	RedisPw     string
-	RedisDbName string
-
 	ValidEmail string
 	SmtpHost   string
 	SmtpEmail  string
 	SmtpPass   string
 
-	AccessKey string
-	SecretKey string
-	Bucket    string
-	Server    string
+	R2Accesskey string
+	R2Secretkey string
+	R2Bucket    string
+	R2AccountId string
+	R2Domain    string
 
 	Host        string
 	ProductPath string
@@ -44,7 +40,6 @@ func Init() {
 	}
 	LoadService(file)
 	LoadDB(file)
-	LoadRedis(file)
 	LoadOs(file)
 	LoadSmtp(file)
 	LoadPath(file)
@@ -70,18 +65,12 @@ func LoadDB(file *ini.File) {
 	DB = file.Section("mysql").Key("DB").String()
 }
 
-func LoadRedis(file *ini.File) {
-	RedisAddr = file.Section("redis").Key("RedisAddr").String()
-	RedisPw = file.Section("redis").Key("RedisPw").String()
-	RedisDb = file.Section("redis").Key("RedisDb").String()
-	RedisDbName = file.Section("redis").Key("RedisDbName").String()
-}
-
 func LoadOs(file *ini.File) {
-	AccessKey = file.Section("os").Key("AccessKey").String()
-	SecretKey = file.Section("os").Key("SecretKey").String()
-	Bucket = file.Section("os").Key("Bucket").String()
-	Server = file.Section("os").Key("Server").String()
+	R2Accesskey = file.Section("os").Key("R2_AccessKey").String()
+	R2Secretkey = file.Section("os").Key("R2_SecretKey").String()
+	R2Bucket = file.Section("os").Key("R2_Bucket").String()
+	R2AccountId = file.Section("os").Key("R2_AccountId").String()
+	R2Domain = file.Section("os").Key("R2_Domain").String()
 }
 
 func LoadSmtp(file *ini.File) {

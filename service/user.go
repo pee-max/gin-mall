@@ -185,7 +185,7 @@ func (service *UserService) Post(ctx context.Context, uId uint, file multipart.F
 			Msg:    e.GetMsg(code),
 		}
 	}
-	path, err := UploadAvatarToLocalStatic(file, uId, user.UserName)
+	path, err := util.UploadAvatarToLocalStatic(file, uId, user.UserName)
 	if err != nil {
 		code = e.ErrorUploadFail
 		return serializer.Response{

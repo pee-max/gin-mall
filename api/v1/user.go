@@ -13,7 +13,8 @@ func UserRegister(c *gin.Context) {
 		res := userRegister.Register(c.Request.Context())
 		c.JSON(http.StatusOK, res)
 	} else {
-		c.JSON(http.StatusBadRequest, err)
+		c.JSON(http.StatusBadRequest, ErrorResponse(err))
+		util.LogrusObj.Infoln(err)
 	}
 }
 
@@ -23,7 +24,8 @@ func UserLogin(c *gin.Context) {
 		res := userLogin.Login(c.Request.Context())
 		c.JSON(http.StatusOK, res)
 	} else {
-		c.JSON(http.StatusBadRequest, err)
+		c.JSON(http.StatusBadRequest, ErrorResponse(err))
+		util.LogrusObj.Infoln(err)
 	}
 
 }
@@ -35,7 +37,8 @@ func UserUpdate(c *gin.Context) {
 		res := userUpdate.Update(c.Request.Context(), claims.ID)
 		c.JSON(http.StatusOK, res)
 	} else {
-		c.JSON(http.StatusBadRequest, err)
+		c.JSON(http.StatusBadRequest, ErrorResponse(err))
+		util.LogrusObj.Infoln(err)
 	}
 }
 
@@ -48,7 +51,8 @@ func UploadAvatar(c *gin.Context) {
 		res := uploadAvatar.Post(c.Request.Context(), claims.ID, file, fileSize)
 		c.JSON(http.StatusOK, res)
 	} else {
-		c.JSON(http.StatusBadRequest, err)
+		c.JSON(http.StatusBadRequest, ErrorResponse(err))
+		util.LogrusObj.Infoln(err)
 	}
 }
 
@@ -59,7 +63,8 @@ func SendEmail(c *gin.Context) {
 		res := sendEmail.Send(c.Request.Context(), claims.ID)
 		c.JSON(http.StatusOK, res)
 	} else {
-		c.JSON(http.StatusBadRequest, err)
+		c.JSON(http.StatusBadRequest, ErrorResponse(err))
+		util.LogrusObj.Infoln(err)
 	}
 }
 
@@ -69,7 +74,8 @@ func ValidEmail(c *gin.Context) {
 		res := validEmai.Valid(c.Request.Context(), c.GetHeader("Authorization"))
 		c.JSON(http.StatusOK, res)
 	} else {
-		c.JSON(http.StatusBadRequest, err)
+		c.JSON(http.StatusBadRequest, ErrorResponse(err))
+		util.LogrusObj.Infoln(err)
 	}
 }
 
@@ -80,6 +86,7 @@ func ShowMoney(c *gin.Context) {
 		res := showMoney.Show(c.Request.Context(), claims.ID)
 		c.JSON(http.StatusOK, res)
 	} else {
-		c.JSON(http.StatusBadRequest, err)
+		c.JSON(http.StatusBadRequest, ErrorResponse(err))
+		util.LogrusObj.Infoln(err)
 	}
 }

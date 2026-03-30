@@ -31976,7 +31976,7 @@ is_read</ColNames>
       <Position>5</Position>
       <StoredType>varchar(256)|0s</StoredType>
     </column>
-    <column id="6176" parent="842" name="category">
+    <column id="6176" parent="842" name="category_id">
       <Position>6</Position>
       <StoredType>bigint unsigned|0s</StoredType>
     </column>
