@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07db5a00-1289-4b76-b3ac-aa78ec8e9856" name="更改" comment="change something">
-      <change afterPath="$PROJECT_DIR$/api/v1/carousel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dao/carousel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/util/logger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/serializer/carousel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/serializer/money.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/carousel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/notice.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/notice.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/e/msg.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/e/msg.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/util/encrypt.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/util/encrypt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routes/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serializer/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/serializer/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
