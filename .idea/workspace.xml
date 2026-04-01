@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07db5a00-1289-4b76-b3ac-aa78ec8e9856" name="更改" comment="change something">
-      <change afterPath="$PROJECT_DIR$/api/v1/product_img.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/serializer/product_img.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/product_img.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/v1/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/serializer/category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/category.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/v1/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/product.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/product.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/productimg.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/productimg.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routes/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/prooduct.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/prooduct.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +72,7 @@
     "go.sdk.automatically.set": "true",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/邓焱/Downloads/A8TranslatePlus-main.zip",
+    "last_opened_file_path": "E:/goProject/gin_mall/serializer",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -91,6 +88,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\goProject\gin_mall\serializer" />
+      <recent name="E:\goProject\gin_mall\dao" />
+      <recent name="E:\goProject\gin_mall\service" />
       <recent name="E:\goProject\gin_mall\static\imgs\avatar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
