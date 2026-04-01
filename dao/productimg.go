@@ -21,3 +21,8 @@ func NewProductImgDaoWithDB(db *gorm.DB) *ProductImgDao {
 func (dao *ProductImgDao) CreateProductImg(productImg *model.ProductImg) (err error) {
 	return dao.DB.Model(&model.ProductImg{}).Create(&productImg).Error
 }
+
+func (dao *ProductImgDao) ListProductImg(id int) (productImg []*model.ProductImg, err error) {
+	err = dao.DB.Model(&model.ProductImg{}).Where("product_id = ?", id).Find(&productImg).Error
+	return
+}

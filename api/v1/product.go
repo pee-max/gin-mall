@@ -42,3 +42,14 @@ func SearchProduct(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, ErrorResponse(err))
 	}
 }
+
+func ShowProduct(c *gin.Context) {
+	showProductService := service.ProductService{}
+	if err := c.ShouldBind(&showProductService); err == nil {
+		res := showProductService.Show(c.Request.Context(), c.Param("id"))
+		c.JSON(http.StatusOK, res)
+	} else {
+		util.LogrusObj.Infoln(err)
+		c.JSON(http.StatusBadRequest, ErrorResponse(err))
+	}
+}

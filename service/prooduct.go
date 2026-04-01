@@ -8,6 +8,7 @@ import (
 	"gin_mall/pkg/util"
 	"gin_mall/serializer"
 	"mime/multipart"
+	"strconv"
 	"sync"
 )
 
@@ -155,4 +156,26 @@ func (service *ProductService) Search(ctx context.Context) serializer.Response {
 		}
 	}
 	return serializer.BuildListResponse(serializer.BuildProducts(products), uint(total))
+}
+
+func (service *ProductService) Show(ctx context.Context, id string) serializer.Response {
+	code := e.Success
+	pId, _ := strconv.Atoi(id)
+	productDao := dao.NewProductDao(ctx)
+	product, err := productDao.GetProductById(pId)
+	if err != nil {
+		util.LogrusObj.Infoln(err)
+		code = e.Error
+		return serializer.Response{
+			Status: code,
+			Msg:    e.GetMsg(code),
+			Error:  err.Error(),
+		}
+	}
+
+	return serializer.Response{
+		Status: code,
+		Msg:    e.GetMsg(code),
+		Data:   serializer.BuildProduct(product),
+	}
 }
