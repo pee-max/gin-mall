@@ -35,7 +35,7 @@ func NewRouter() *gin.Engine {
 			authed.POST("money", api.ShowMoney)
 
 			authed.POST("product", api.CreateProduct)
-			authed.POST("products")
+			authed.POST("products", api.SearchProduct)
 		}
 
 	}

@@ -31,3 +31,14 @@ func ListProduct(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, ErrorResponse(err))
 	}
 }
+
+func SearchProduct(c *gin.Context) {
+	searchProductService := service.ProductService{}
+	if err := c.ShouldBind(&searchProductService); err == nil {
+		res := searchProductService.Search(c.Request.Context())
+		c.JSON(http.StatusOK, res)
+	} else {
+		util.LogrusObj.Infoln(err)
+		c.JSON(http.StatusBadRequest, ErrorResponse(err))
+	}
+}

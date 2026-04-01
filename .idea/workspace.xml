@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/v1/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/v1/product.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/product.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/base.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routes/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/serializer/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/serializer/product.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/prooduct.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/prooduct.go" afterDir="false" />

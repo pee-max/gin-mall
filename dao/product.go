@@ -32,6 +32,15 @@ func (dao *ProductDao) ListProductByCondition(condition map[string]interface{}, 
 	return
 }
 
-func (dao *ProductDao) GetProductById(id int64) (product *model.Product, err error) {
-
+func (dao *ProductDao) SearchProduct(info string, page model.BasePage) (products []*model.Product, count int64, err error) {
+	err = dao.DB.Model(&model.Product{}).
+		Where("title like ? or info like ?", "%"+info+"%", "%"+info+"%").Count(&count).Error
+	if err != nil {
+		return
+	}
+	err = dao.DB.Model(&model.Product{}).
+		Where("title like ? or info like ?", "%"+info+"%", "%"+info+"%").
+		Offset((page.PageNum - 1) * (page.PageSize)).
+		Limit(page.PageSize).Find(&products).Error
+	return
 }
