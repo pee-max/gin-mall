@@ -59,7 +59,7 @@ func (service *UserService) Register(ctx context.Context) serializer.Response {
 		}
 	}
 	if exist {
-		code = e.ErrorExistUser
+		code = e.ErrorExist
 		return serializer.Response{
 			Status: code,
 			Msg:    e.GetMsg(code),
@@ -80,7 +80,7 @@ func (service *UserService) Register(ctx context.Context) serializer.Response {
 		}
 	}
 	if err = userDao.CreateUser(user); err != nil {
-		code = e.ErrorFailCreatUser
+		code = e.ErrorFailCreat
 	}
 	return serializer.Response{
 		Status: code,
@@ -94,7 +94,7 @@ func (service *UserService) Login(ctx context.Context) serializer.Response {
 	userDao := dao.NewUserDao(ctx)
 	user, exist, err := userDao.ExistOrNotByUserName(service.UserName)
 	if !exist || err != nil {
-		code = e.ErrorExistUserNotFound
+		code = e.ErrorNotFound
 		return serializer.Response{
 			Status: code,
 			Msg:    e.GetMsg(code),
@@ -133,7 +133,7 @@ func (service *UserService) Update(ctx context.Context, uId uint) serializer.Res
 	user, err = userDao.FindUserByID(uId)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			code = e.ErrorExistUserNotFound
+			code = e.ErrorNotFound
 			return serializer.Response{
 				Status: code,
 				Msg:    e.GetMsg(code),
@@ -173,7 +173,7 @@ func (service *UserService) Post(ctx context.Context, uId uint, file multipart.F
 	user, err = userDao.FindUserByID(uId)
 	if err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			code = e.ErrorExistUserNotFound
+			code = e.ErrorNotFound
 			return serializer.Response{
 				Status: code,
 				Msg:    e.GetMsg(code),

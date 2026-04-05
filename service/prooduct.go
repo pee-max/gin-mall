@@ -160,9 +160,9 @@ func (service *ProductService) Search(ctx context.Context) serializer.Response {
 
 func (service *ProductService) Show(ctx context.Context, id string) serializer.Response {
 	code := e.Success
-	pId, _ := strconv.Atoi(id)
+	pId, _ := strconv.ParseUint(id, 10, 0)
 	productDao := dao.NewProductDao(ctx)
-	product, err := productDao.GetProductById(pId)
+	product, err := productDao.GetProductById(uint(pId))
 	if err != nil {
 		util.LogrusObj.Infoln(err)
 		code = e.Error

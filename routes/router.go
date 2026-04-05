@@ -39,6 +39,10 @@ func NewRouter() *gin.Engine {
 
 			authed.POST("product", api.CreateProduct)
 			authed.POST("products", api.SearchProduct)
+
+			authed.GET("favorites", api.ListFavorites)
+			authed.POST("favorites", api.CreateFavorites)
+			authed.DELETE("favorites/:id", api.DeleteFavorites)
 		}
 
 	}

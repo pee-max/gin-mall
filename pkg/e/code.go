@@ -5,10 +5,10 @@ const (
 	Error         = 500
 	InvalidParams = 400
 
-	ErrorExistUser         = 30001
-	ErrorExistUserNotFound = 30002
-	ErrorFailEncryption    = 30003
-	ErrorFailCreatUser     = 30004
+	ErrorExist          = 30001
+	ErrorNotFound       = 30002
+	ErrorFailEncryption = 30003
+	ErrorFailCreat      = 30004
 
 	WrongPassword         = 30005
 	ErrorAuthToken        = 30006

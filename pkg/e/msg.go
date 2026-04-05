@@ -5,10 +5,10 @@ var Msg = map[int]string{
 	Error:         "failed",
 	InvalidParams: "参数错误",
 
-	ErrorExistUser:         "用户已存在",
-	ErrorExistUserNotFound: "用户不存在",
-	ErrorFailEncryption:    "加密密码失败",
-	ErrorFailCreatUser:     "创建用户失败",
+	ErrorExist:          "已存在",
+	ErrorNotFound:       "用户不存在",
+	ErrorFailEncryption: "加密密码失败",
+	ErrorFailCreat:      "创建用户失败",
 
 	WrongPassword:         "密码错误",
 	ErrorAuthToken:        "token认证失败",
