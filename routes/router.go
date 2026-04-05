@@ -52,6 +52,14 @@ func NewRouter() *gin.Engine {
 				addresses.PUT("/:id", api.UpdateAddress)
 				addresses.DELETE("/:id", api.DeleteAddress)
 			}
+
+			carts := authed.Group("carts")
+			{
+				carts.POST("", api.CreateCarts)
+				carts.GET("", api.ListCarts)
+				carts.PUT("/:id", api.UpdateCarts)
+				carts.DELETE("/:id", api.DeleteCarts)
+			}
 		}
 
 	}
