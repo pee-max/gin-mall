@@ -22,7 +22,7 @@ func (dao *AddressDao) Create(address *model.Address) error {
 	return dao.db.Create(address).Error
 }
 func (dao *AddressDao) FindById(id uint, uid uint) (address *model.Address, err error) {
-	err = dao.db.Where("id = ? AND user_id = ?", id, uid).Find(&address).Error
+	err = dao.db.Where("id = ? AND user_id = ?", id, uid).First(&address).Error
 	return
 }
 

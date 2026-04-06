@@ -22,7 +22,7 @@ func (dao *OrderDao) Create(order *model.Order) error {
 	return dao.db.Create(order).Error
 }
 func (dao *OrderDao) FindById(uid uint, id uint) (order *model.Order, err error) {
-	err = dao.db.Where("id = ? AND user_id = ?", id, uid).Find(&order).Error
+	err = dao.db.Where("id = ? AND user_id = ?", id, uid).First(&order).Error
 	return
 }
 
