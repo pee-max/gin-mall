@@ -20,8 +20,9 @@ func CreateAddress(c *gin.Context) {
 }
 func GetAddress(c *gin.Context) {
 	getAddressService := service.AddressService{}
+	claim, _ := util.ParseToken(c.GetHeader("Authorization"))
 	if err := c.ShouldBind(&getAddressService); err == nil {
-		res := getAddressService.Get(c.Request.Context(), c.Param("id"))
+		res := getAddressService.Get(c.Request.Context(), c.Param("id"), claim.ID)
 		c.JSON(http.StatusOK, res)
 	} else {
 		util.LogrusObj.Infoln(err)

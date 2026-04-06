@@ -60,6 +60,14 @@ func NewRouter() *gin.Engine {
 				carts.PUT("/:id", api.UpdateCarts)
 				carts.DELETE("/:id", api.DeleteCarts)
 			}
+
+			orders := authed.Group("orders")
+			{
+				orders.POST("", api.CreateOrders)
+				orders.GET("", api.ListOrders)
+				orders.GET("/:id", api.GetOrders)
+				orders.DELETE("/:id", api.DeleteOrders)
+			}
 		}
 
 	}

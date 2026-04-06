@@ -21,8 +21,8 @@ func NewAddressDaoWithDb(db *gorm.DB) *AddressDao {
 func (dao *AddressDao) Create(address *model.Address) error {
 	return dao.db.Create(address).Error
 }
-func (dao *AddressDao) FindById(id uint) (address *model.Address, err error) {
-	err = dao.db.Where("id = ?", id).Find(&address).Error
+func (dao *AddressDao) FindById(id uint, uid uint) (address *model.Address, err error) {
+	err = dao.db.Where("id = ? AND user_id = ?", id, uid).Find(&address).Error
 	return
 }
 

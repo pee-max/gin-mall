@@ -8,7 +8,7 @@ type Order struct {
 	ProductId uint `gorm:"not null"`
 	BossId    uint `gorm:"not null"`
 	AddressId uint `gorm:"not null"`
-	Num       int
+	Num       uint
 	OrderNum  uint64
 	Type      uint
 	Money     float64

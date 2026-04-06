@@ -40,12 +40,12 @@ func (service *AddressService) Create(ctx context.Context, uid uint) serializer.
 	}
 }
 
-func (service *AddressService) Get(ctx context.Context, id string) serializer.Response {
+func (service *AddressService) Get(ctx context.Context, id string, uid uint) serializer.Response {
 	var address *model.Address
 	addressDao := dao.NewAddressDao(ctx)
 	code := e.Success
 	aid, _ := strconv.Atoi(id)
-	address, err := addressDao.FindById(uint(aid))
+	address, err := addressDao.FindById(uint(aid), uid)
 	if err != nil {
 		code = e.Error
 		return serializer.Response{
