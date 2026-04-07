@@ -7,7 +7,7 @@ import (
 )
 
 type OrderDao struct {
-	db *gorm.DB
+	*gorm.DB
 }
 
 func NewOrderDao(ctx context.Context) *OrderDao {
@@ -19,23 +19,23 @@ func NewOrderDaoWithDb(db *gorm.DB) *OrderDao {
 }
 
 func (dao *OrderDao) Create(order *model.Order) error {
-	return dao.db.Create(order).Error
+	return dao.DB.Create(order).Error
 }
 func (dao *OrderDao) FindById(uid uint, id uint) (order *model.Order, err error) {
-	err = dao.db.Where("id = ? AND user_id = ?", id, uid).First(&order).Error
+	err = dao.DB.Where("id = ? AND user_id = ?", id, uid).First(&order).Error
 	return
 }
 
 func (dao *OrderDao) List(uid uint) (order []*model.Order, err error) {
-	err = dao.db.Where("user_id = ?", uid).Find(&order).Error
+	err = dao.DB.Where("user_id = ?", uid).Find(&order).Error
 	return
 }
 
 func (dao *OrderDao) ListWithCondition(condition map[string]interface{}, page model.BasePage) (orders []*model.Order, err error) {
-	err = dao.db.Where(condition).Offset((page.PageSize) * (page.PageNum - 1)).Limit(page.PageSize).Find(&orders).Error
+	err = dao.DB.Where(condition).Offset((page.PageSize) * (page.PageNum - 1)).Limit(page.PageSize).Find(&orders).Error
 	return
 }
 
 func (dao *OrderDao) Delete(id uint, uid uint) error {
-	return dao.db.Where("id = ? AND user_id = ?", id, uid).Delete(&model.Order{}).Error
+	return dao.DB.Where("id = ? AND user_id = ?", id, uid).Delete(&model.Order{}).Error
 }

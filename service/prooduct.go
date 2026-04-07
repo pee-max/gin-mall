@@ -22,7 +22,7 @@ type ProductService struct {
 	Price         string `json:"price" form:"price"`
 	DiscountPrice string `json:"discount_price" form:"discount_price"`
 	OnSale        bool   `json:"on_sale" form:"on_sale"`
-	Num           int    `json:"num" form:"num"`
+	Num           uint   `json:"num" form:"num"`
 	model.BasePage
 }
 

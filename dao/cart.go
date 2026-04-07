@@ -7,7 +7,7 @@ import (
 )
 
 type CartDao struct {
-	db *gorm.DB
+	*gorm.DB
 }
 
 func NewCartDao(ctx context.Context) *CartDao {
@@ -19,18 +19,18 @@ func NewCartDaoWithDb(db *gorm.DB) *CartDao {
 }
 
 func (dao *CartDao) Create(cart *model.Cart) error {
-	return dao.db.Create(cart).Error
+	return dao.DB.Create(cart).Error
 }
 
 func (dao *CartDao) List(uid uint) (cart []*model.Cart, err error) {
-	err = dao.db.Where("user_id = ?", uid).Find(&cart).Error
+	err = dao.DB.Where("user_id = ?", uid).Find(&cart).Error
 	return
 }
 
 func (dao *CartDao) UpdateNum(id uint, num uint, uid uint) error {
-	return dao.db.Model(&model.Cart{}).Where("id = ? AND user_id = ?", id, uid).Update("num", num).Error
+	return dao.DB.Model(&model.Cart{}).Where("id = ? AND user_id = ?", id, uid).Update("num", num).Error
 }
 
 func (dao *CartDao) Delete(id uint, uid uint) error {
-	return dao.db.Where("id = ? AND user_id = ?", id, uid).Delete(&model.Cart{}).Error
+	return dao.DB.Where("id = ? AND user_id = ?", id, uid).Delete(&model.Cart{}).Error
 }

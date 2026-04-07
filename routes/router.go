@@ -68,6 +68,8 @@ func NewRouter() *gin.Engine {
 				orders.GET("/:id", api.GetOrders)
 				orders.DELETE("/:id", api.DeleteOrders)
 			}
+
+			//authed.POST("payDown", api.OrderPay)
 		}
 
 	}

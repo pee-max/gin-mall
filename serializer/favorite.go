@@ -18,7 +18,7 @@ type Favorite struct {
 	Price         string `json:"price"`
 	DiscountPrice string `json:"discount_price"`
 	BossId        uint   `json:"boss_id"`
-	Num           int    `json:"num"`
+	Num           uint   `json:"num"`
 	OnSale        bool   `json:"on_sale"`
 }
 
